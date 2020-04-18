@@ -1,8 +1,7 @@
 from graph import *
+   
 
-
-
-def tree (x,y):
+    def tree (x,y):
     x1=y/2
     penj = 0.2 * y
     brushColor('brown')

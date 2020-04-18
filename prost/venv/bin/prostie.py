@@ -1,4 +1,5 @@
 def VseProstie(r=0):
+    '''vivodit vse prostit v intervale ot 0 do r'''
     if r == 0:
         r = int(input('interval:')) + 1
     else:
@@ -18,6 +19,7 @@ def VseProstie(r=0):
 
 
 def SummaProstih(r=0):
+    '''vivodit summu prostih v intervale ot 0 do r'''
     if r == 0:
         r = int(input('interval:')) + 1
     else:
