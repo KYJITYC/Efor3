@@ -10,4 +10,5 @@ def levi(A,B):
                 F[i][j]=1+min(F[i-1][j-1],F[i][j-1],F[i-1][j])
         print(F)
     return F[len(A)][len(B)]
-print (levi(('qwm'),('qtyhm')))
+if __name__=='__main__':
+    print (levi(('qwm'),('qtyhm')))
