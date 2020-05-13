@@ -1,9 +1,10 @@
 import tkinter as tk
 import random
 import time
-'''не кликается на шар'''
+
 def main():
-    global canv, root, w,h, points,x_event,y_event,xs_event,ys_event
+    global canv, root, w,h, points,x_event,y_event,xs_event,ys_event, name
+    name = input('введите имя: ')
     points=0
     w=800
     h=600
@@ -13,6 +14,9 @@ def main():
     canv = tk.Canvas(root,bg='white')
     canv.pack(fill=tk.BOTH,expand=1)
     canv.bind('<Button-1>', click)
+    button = tk.Button(root, text="сохранить")
+    button.bind('<Button-1>', count)
+    button.pack()
     s = Square()
     b = Ball()
 
@@ -21,6 +25,7 @@ def main():
     root.mainloop()
 
 def click(event):
+    '''передает координаты нажатия фигурам'''
     global x_event,y_event,xs_event,ys_event
 
     x_event=event.x
@@ -29,6 +34,16 @@ def click(event):
     ys_event=event.y
 
     return x_event,y_event,xs_event,ys_event
+
+def count(event):
+    '''сохраняет очки в файл'''
+    global points, name
+    print('{}--{}'.format(name, points))
+    with open(r'/home/efor/Efor3/fail.txt', 'a') as x:
+        d=str('\n{}--{}'.format(name,points))
+        x.write(d)
+        print('{}--{}'.format(name,points))
+
 
 
 class Ball:
@@ -89,7 +104,6 @@ class Ball:
         root.after(5, self.motion)
 
 
-
 class Square:
     def __init__(self):
         self.vx =vx= -3
@@ -148,4 +162,6 @@ class Square:
                 print(points)
                 self.square_gen()
             xs_event = ys_event = -1
+
+
 main()
